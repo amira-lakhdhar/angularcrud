@@ -1,0 +1,962 @@
+<!-- ===============================================-->
+<!--    Main Content-->
+<!-- ===============================================-->
+<main class="main" id="top">
+    <div class="container-fluid" data-layout="container">
+
+        <nav class="navbar navbar-light navbar-vertical navbar-expand-xl">
+            <app-sidebar></app-sidebar>
+        </nav>
+
+        <div class="content">
+            <app-navbar></app-navbar>
+            <div class="row mb-3">
+                <div class="col">
+                    <div class="card bg-100 shadow-none border">
+                        <div class="row gx-0 flex-between-center">
+                            <div class="col-sm-auto d-flex align-items-center"><img class="ms-n2"
+                                    src="../assets/img/illustrations/crm-bar-chart.png" alt="" width="90" />
+                                <div>
+                                    <h4 class="text-primary fw-bold mb-0">Resellers <span
+                                            class="text-info fw-medium">MSP</span></h4>
+                                </div><img class="ms-n4 d-md-none d-lg-block"
+                                    src="../assets/img/illustrations/crm-line-chart.png" alt="" width="150" />
+                            </div>
+                            <div class="col-md-auto p-3">
+                                <form class="row align-items-center g-3">
+                                    <div class="col-auto">
+                                        <h6 class="text-700 mb-0">Showing Data For: </h6>
+                                    </div>
+                                    <div class="col-md-auto position-relative"><input
+                                            class="form-control form-control-sm datetimepicker ps-4" id="CRMDateRange"
+                                            type="text"
+                                            data-options="{&quot;mode&quot;:&quot;range&quot;,&quot;dateFormat&quot;:&quot;M d&quot;,&quot;disableMobile&quot;:true , &quot;defaultDate&quot;: [&quot;Jun 24&quot;, &quot;Jul 01&quot;] }" /><span
+                                            class="fas fa-calendar-alt text-primary position-absolute top-50 translate-middle-y ms-2">
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-0">
+                <div class="col-xl-12 pe-xl-2">
+                    <div class="card mb-3">
+                        <div class="card-body bg-light">
+                            <div class="tab-content">
+                                <div class="tab-pane preview-tab-pane active" role="tabpanel"
+                                    aria-labelledby="tab-dom-d3e20a1d-916b-4b20-8a1d-37a2c2dbee91"
+                                    id="dom-d3e20a1d-916b-4b20-8a1d-37a2c2dbee91">
+                                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                        <li class="nav-item"><a class="nav-link active" id="home-tab"
+                                                data-bs-toggle="tab" href="#tab-home" role="tab"
+                                                aria-controls="tab-home" aria-selected="true">Abonnement et licences
+                                                MSP</a></li>
+                                        <li class="nav-item"><a class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                                                href="#tab-profile" role="tab" aria-controls="tab-profile"
+                                                aria-selected="false">Licences standard</a></li>
+                                    </ul>
+                                    <div class="tab-content  border-bottom p-3" id="myTabContent">
+                                        <div class="tab-pane fade show active" id="tab-home" role="tabpanel"
+                                            aria-labelledby="home-tab">
+                                            <div class=" mb-3">
+                                                <div class="card-header">
+                                                    <div class="row flex-between-end">
+                                                    </div>
+                                                </div>
+                                                <div class="card-body pt-0">
+                                                    <div class="tab-content">
+                                                        <div class="tab-pane preview-tab-pane active" role="tabpanel"
+                                                            aria-labelledby="tab-dom-603ac24c-ea41-4c86-96c0-b0f750fb6de0"
+                                                            id="dom-603ac24c-ea41-4c86-96c0-b0f750fb6de0">
+                                                            <div id="tableExample2"
+                                                                data-list='{"valueNames":["name","email","age" , "payment"],"page":5,"pagination":true , "filter": true, "fallback":"pages-table-fallback"}'>
+                                                                <div class="row">
+                                                                    <div class="col-4">
+                                                                        <div class="col-auto px-3"> <select
+                                                                                class="form-select form-select-sm mb-3"
+                                                                                aria-label="Bulk actions"
+                                                                                data-list-filter="data-list-filter"
+                                                                                [ngModel]="selectedDevice"
+                                                                                (ngModelChange)="onChange($event)">
+                                                                                <option selected="" value="">Select
+                                                                                    status</option>
+                                                                                <option value="OnHold">OnHold</option>
+                                                                                <option value="Active">Active</option>
+                                                                                <option value="Blocked">Blocked</option>
+                                                                            </select></div>
+                                                                    </div>
+                                                                    <div class="col-sm-4"></div>
+                                                                    <div class="col-sm-4">
+
+                                                                        <div class="h-100">
+                                                                            <form>
+                                                                                <div class="input-group"><input
+                                                                                        class="form-control form-control-sm  search"
+                                                                                        type="search"
+                                                                                        placeholder="Search for a ..."
+                                                                                        aria-label="search" />
+                                                                                    <div
+                                                                                        class="input-group-text bg-transparent">
+                                                                                        <span
+                                                                                            class="fa fa-search fs--1 text-600"></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="table-responsive scrollbar">
+                                                                    <table
+                                                                        class="table table-bordered table-striped fs--1 mb-0">
+                                                                        <thead class="bg-200 text-900">
+                                                                            <tr>
+                                                                                <th class="sort" data-sort="name">Numéro
+                                                                                </th>
+                                                                                <th class="sort" data-sort="email">
+                                                                                    Revendeur
+                                                                                </th>
+                                                                                <th class="sort" data-sort="age">
+                                                                                    Demandeur
+                                                                                </th>
+                                                                                <th style="text-align: center;"
+                                                                                    colspan="2" scope="colgroup">Statut
+                                                                                </th>
+
+                                                                                <th>Actions</th>
+
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody class="list" id="table-purchase-body">
+                                                                            <tr *ngFor="let item of listeresellers"
+                                                                                class="btn-reveal-trigger">
+                                                                                <td class="name"><a
+                                                                                        class="text-primary fw-semi-bold"
+                                                                                        [routerLink]="'/resellerDetails/' + item._id">{{item.Contacts.CompanyName}}</a>
+                                                                                </td>
+                                                                                <td class="email">
+                                                                                    {{item.Contacts.Email}}</td>
+                                                                                <td class="age">*****</td>
+                                                                                <td style="border-style: hidden;"
+                                                                                    class="payment align-middle text-end fs-0 white-space-nowrap">
+                                                                                    <span
+                                                                                        [ngClass]="getClassStatus(item.Informations.Status)">{{item.Informations.Status}}
+                                                                                        <span
+                                                                                            [ngClass]="getClassIcons(item.Informations.Status)"
+                                                                                            data-fa-transform="shrink-2">
+                                                                                        </span>
+
+                                                                                    </span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <span
+                                                                                        class=" form-check form-switch">
+                                                                                        <input
+                                                                                            (click)=changeStatus(item)
+                                                                                            [checked]="item.Informations.Status ==='Active'"
+                                                                                            class="form-check-input"
+                                                                                            type="checkbox" />
+                                                                                    </span>
+                                                                                </td>
+
+                                                                                <!-- <span
+                                                                                        class="checkbox checkbox-slider--b-flat">
+                                                                                        <label>
+                                                                                            <input type="checkbox"
+                                                                                                [checked]="item.Informations.Status ==='Active'"><span></span>
+                                                                                        </label>
+                                                                                    </span> -->
+
+
+
+                                                                                <td>
+                                                                                    <div> <button
+                                                                                            (click)=updateItem(item)
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="modal"
+                                                                                            data-bs-target="#error-modal"><span
+                                                                                                class="text-500 fas fa-edit"></span></button>
+                                                                                        <button
+                                                                                            (click)="delete(item._id)"
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="modal"
+                                                                                            data-bs-target="#myModal"><span
+                                                                                                class="text-500 fas fa-trash-alt"></span></button>
+
+                                                                                    </div>
+                                                                                </td>
+
+
+
+                                                                            </tr>
+
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                                <div class="text-center d-none"
+                                                                    id="pages-table-fallback">
+                                                                    <p class="fw-bold fs-1 mt-3">No Page found</p>
+                                                                </div>
+                                                                <div class="d-flex justify-content-center mt-3"><button
+                                                                        class="btn btn-sm btn-falcon-default me-1"
+                                                                        type="button" title="Previous"
+                                                                        data-list-pagination="prev"><span
+                                                                            class="fas fa-chevron-left"></span></button>
+                                                                    <ul class="pagination mb-0"></ul><button
+                                                                        class="btn btn-sm btn-falcon-default ms-1"
+                                                                        type="button" title="Next"
+                                                                        data-list-pagination="next"><span
+                                                                            class="fas fa-chevron-right">
+                                                                        </span></button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="tab-profile" role="tabpanel"
+                                            aria-labelledby="profile-tab">
+                                            <div class=" mb-3">
+                                                <div class="card-header">
+                                                    <div class="row flex-between-end">
+                                                    </div>
+                                                </div>
+                                                <div class="card-body pt-0">
+                                                    <div class="tab-content">
+                                                        <div class="tab-pane preview-tab-pane active" role="tabpanel"
+                                                            aria-labelledby="tab-dom-603ac24c-ea41-4c86-96c0-b0f750fb6de0"
+                                                            id="dom-603ac24c-ea41-4c86-96c0-b0f750fb6de0">
+                                                            <div id="tableExample2"
+                                                                data-list='{"valueNames":["name","email","age" , "payment"],"page":5,"pagination":true , "filter": true, "fallback":"pages-table-fallback"}'>
+                                                                <div class="row">
+                                                                    <div class="col-4">
+                                                                        <div class="col-auto px-3"> <select
+                                                                                class="form-select form-select-sm mb-3"
+                                                                                aria-label="Bulk actions"
+                                                                                data-list-filter="data-list-filter">
+                                                                                <option selected="" value="">Select
+                                                                                    status</option>
+                                                                                <option value="Pending">Pending</option>
+                                                                                <option value="Success">Success</option>
+                                                                                <option value="Blocked">Blocked</option>
+                                                                            </select></div>
+                                                                    </div>
+                                                                    <div class="col-sm-4"></div>
+                                                                    <div class="col-sm-4">
+
+                                                                        <div class="h-100">
+                                                                            <form>
+                                                                                <div class="input-group"><input
+                                                                                        class="form-control form-control-sm  search"
+                                                                                        type="search"
+                                                                                        placeholder="Search for a ..."
+                                                                                        aria-label="search" />
+                                                                                    <div
+                                                                                        class="input-group-text bg-transparent">
+                                                                                        <span
+                                                                                            class="fa fa-search fs--1 text-600"></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="table-responsive scrollbar">
+                                                                    <table
+                                                                        class="table table-bordered table-striped fs--1 mb-0">
+                                                                        <thead class="bg-200 text-900">
+                                                                            <tr>
+                                                                                <th class="sort" data-sort="name">
+                                                                                    Automatisation ID</th>
+                                                                                <th class="sort" data-sort="email">
+                                                                                    Revendeur
+                                                                                </th>
+                                                                                <th class="sort" data-sort="age">Crée
+                                                                                    par
+                                                                                </th>
+                                                                                <th class="sort align-middle white-space-nowrap text-end pe-4"
+                                                                                    data-sort="payment">Statut</th>
+                                                                                <th></th>
+                                                                                <th>Actions</th>
+
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody class="list" id="table-purchase-body">
+                                                                            <tr class="btn-reveal-trigger">
+                                                                                <td class="name"><a
+                                                                                        class="text-primary fw-semi-bold"
+                                                                                        href="#!">PRTNR202207-12532</a>
+                                                                                </td>
+                                                                                <td class="email">INFORSAL</td>
+                                                                                <td class="age">Elias Teixeira</td>
+                                                                                <td
+                                                                                    class="align-middle text-end fs-0 white-space-nowrap payment">
+                                                                                    <span
+                                                                                        class="badge badge rounded-pill badge-soft-success">Accepted<span
+                                                                                            class="ms-1 fas fa-check"
+                                                                                            data-fa-transform="shrink-2"></span></span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div
+                                                                                        class="checkbox checkbox-slider--b-flat">
+                                                                                        <label>
+                                                                                            <input
+                                                                                                type="checkbox"><span></span>
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div> <button
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="modal"
+                                                                                            data-bs-target="#error-modal"><span
+                                                                                                class="text-500 fas fa-edit"></span></button>
+                                                                                        <button
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-placement="top"
+                                                                                            title="Delete"><span
+                                                                                                class="text-500 fas fa-trash-alt"></span></button>
+                                                                                    </div>
+                                                                                </td>
+
+
+                                                                            </tr>
+                                                                            <tr class="btn-reveal-trigger">
+                                                                                <td class="name"><a
+                                                                                        class="text-primary fw-semi-bold"
+                                                                                        href="#!">PRTNR202111-10569</a>
+                                                                                </td>
+                                                                                <td class="email">OneTECH Business
+                                                                                    Solutions</td>
+                                                                                <td class="age">Elias Teixeira</td>
+                                                                                <td
+                                                                                    class="align-middle text-end fs-0 white-space-nowrap payment">
+                                                                                    <span
+                                                                                        class="badge badge rounded-pill badge-soft-secondary">OnHold<span
+                                                                                            class="ms-1 fas fa-ban"
+                                                                                            data-fa-transform="shrink-2"></span></span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div
+                                                                                        class="checkbox checkbox-slider--b-flat">
+                                                                                        <label>
+                                                                                            <input
+                                                                                                type="checkbox"><span></span>
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div> <button
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="modal"
+                                                                                            data-bs-target="#error-modal"><span
+                                                                                                class="text-500 fas fa-edit"></span></button>
+                                                                                        <button
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-placement="top"
+                                                                                            title="Delete"><span
+                                                                                                class="text-500 fas fa-trash-alt"></span></button>
+                                                                                    </div>
+                                                                                </td>
+
+                                                                            </tr>
+                                                                            <tr class="btn-reveal-trigger">
+                                                                                <td class="name"><a
+                                                                                        class="text-primary fw-semi-bold"
+                                                                                        href="#!">Oscar</a></td>
+                                                                                <td class="email">oscar@example.com</td>
+                                                                                <td class="age">52</td>
+                                                                                <td
+                                                                                    class="align-middle text-end fs-0 white-space-nowrap payment">
+                                                                                    <span
+                                                                                        class="badge badge rounded-pill badge-soft-warning">Pending<span
+                                                                                            class="ms-1 fas fa-stream"
+                                                                                            data-fa-transform="shrink-2"></span></span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div
+                                                                                        class="checkbox checkbox-slider--b-flat">
+                                                                                        <label>
+                                                                                            <input
+                                                                                                type="checkbox"><span></span>
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div> <button
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="modal"
+                                                                                            data-bs-target="#error-modal"><span
+                                                                                                class="text-500 fas fa-edit"></span></button>
+                                                                                        <button
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-placement="top"
+                                                                                            title="Delete"><span
+                                                                                                class="text-500 fas fa-trash-alt"></span></button>
+                                                                                    </div>
+                                                                                </td>
+
+                                                                            </tr>
+                                                                            <tr class="btn-reveal-trigger">
+                                                                                <td class="name"><a
+                                                                                        class="text-primary fw-semi-bold"
+                                                                                        href="#!">Emily</a></td>
+                                                                                <td class="email">emily@example.com</td>
+                                                                                <td class="age">30</td>
+                                                                                <td
+                                                                                    class="align-middle text-end fs-0 white-space-nowrap payment">
+                                                                                    <span
+                                                                                        class="badge badge rounded-pill badge-soft-success">Success<span
+                                                                                            class="ms-1 fas fa-check"
+                                                                                            data-fa-transform="shrink-2"></span></span>
+                                                                                </td>
+
+                                                                                <td>
+                                                                                <td>
+                                                                                    <div
+                                                                                        class="checkbox checkbox-slider--b-flat">
+                                                                                        <label>
+                                                                                            <input
+                                                                                                type="checkbox"><span></span>
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div> <button
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="modal"
+                                                                                            data-bs-target="#error-modal"><span
+                                                                                                class="text-500 fas fa-edit"></span></button>
+                                                                                        <button
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-placement="top"
+                                                                                            title="Delete"><span
+                                                                                                class="text-500 fas fa-trash-alt"></span></button>
+                                                                                    </div>
+                                                                                </td>
+
+                                                                            </tr>
+                                                                            <tr class="btn-reveal-trigger">
+                                                                                <td class="name"><a
+                                                                                        class="text-primary fw-semi-bold"
+                                                                                        href="#!">Jara</a></td>
+                                                                                <td class="email">jara@example.com</td>
+                                                                                <td class="age">25</td>
+                                                                                <td
+                                                                                    class="align-middle text-end fs-0 white-space-nowrap payment">
+                                                                                    <span
+                                                                                        class="badge badge rounded-pill badge-soft-warning">Pending<span
+                                                                                            class="ms-1 fas fa-stream"
+                                                                                            data-fa-transform="shrink-2"></span></span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div
+                                                                                        class="checkbox checkbox-slider--b-flat">
+                                                                                        <label>
+                                                                                            <input
+                                                                                                type="checkbox"><span></span>
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div> <button
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="modal"
+                                                                                            data-bs-target="#error-modal"><span
+                                                                                                class="text-500 fas fa-edit"></span></button>
+                                                                                        <button
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-placement="top"
+                                                                                            title="Delete"><span
+                                                                                                class="text-500 fas fa-trash-alt"></span></button>
+                                                                                    </div>
+                                                                                </td>
+
+                                                                            </tr>
+                                                                            <tr class="btn-reveal-trigger">
+                                                                                <td class="name">Clark</td>
+                                                                                <td class="email">clark@example.com</td>
+                                                                                <td class="age">39</td>
+                                                                                <td
+                                                                                    class="align-middle text-end fs-0 white-space-nowrap payment">
+                                                                                    <span
+                                                                                        class="badge badge rounded-pill badge-soft-warning">Pending<span
+                                                                                            class="ms-1 fas fa-stream"
+                                                                                            data-fa-transform="shrink-2"></span></span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div> <button
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="modal"
+                                                                                            data-bs-target="#error-modal"><span
+                                                                                                class="text-500 fas fa-edit"></span></button>
+                                                                                        <button
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-placement="top"
+                                                                                            title="Delete"><span
+                                                                                                class="text-500 fas fa-trash-alt"></span></button>
+                                                                                    </div>
+                                                                                </td>
+
+                                                                            </tr>
+                                                                            <tr class="btn-reveal-trigger">
+                                                                                <td class="name">Jennifer</td>
+                                                                                <td class="email">jennifer@example.com
+                                                                                </td>
+                                                                                <td class="age">52</td>
+                                                                                <td
+                                                                                    class="align-middle text-end fs-0 white-space-nowrap payment">
+                                                                                    <span
+                                                                                        class="badge badge rounded-pill badge-soft-warning">Pending<span
+                                                                                            class="ms-1 fas fa-stream"
+                                                                                            data-fa-transform="shrink-2"></span></span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div> <button
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="modal"
+                                                                                            data-bs-target="#error-modal"><span
+                                                                                                class="text-500 fas fa-edit"></span></button>
+                                                                                        <button
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-placement="top"
+                                                                                            title="Delete"><span
+                                                                                                class="text-500 fas fa-trash-alt"></span></button>
+                                                                                    </div>
+                                                                                </td>
+
+                                                                            </tr>
+                                                                            <tr class="btn-reveal-trigger">
+                                                                                <td class="name">Tony</td>
+                                                                                <td class="email">tony@example.com</td>
+                                                                                <td class="age">30</td>
+                                                                                <td
+                                                                                    class="align-middle text-end fs-0 white-space-nowrap payment">
+                                                                                    <span
+                                                                                        class="badge badge rounded-pill badge-soft-success">Success<span
+                                                                                            class="ms-1 fas fa-check"
+                                                                                            data-fa-transform="shrink-2"></span></span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div> <button
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="modal"
+                                                                                            data-bs-target="#error-modal"><span
+                                                                                                class="text-500 fas fa-edit"></span></button>
+                                                                                        <button
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-placement="top"
+                                                                                            title="Delete"><span
+                                                                                                class="text-500 fas fa-trash-alt"></span></button>
+                                                                                    </div>
+                                                                                </td>
+
+                                                                            </tr>
+                                                                            <tr class="btn-reveal-trigger">
+                                                                                <td class="name">Tom</td>
+                                                                                <td class="email">tom@example.com</td>
+                                                                                <td class="age">25</td>
+                                                                                <td
+                                                                                    class="align-middle text-end fs-0 white-space-nowrap payment">
+                                                                                    <span
+                                                                                        class="badge badge rounded-pill badge-soft-success">Success<span
+                                                                                            class="ms-1 fas fa-check"
+                                                                                            data-fa-transform="shrink-2"></span></span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div> <button
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="modal"
+                                                                                            data-bs-target="#error-modal"><span
+                                                                                                class="text-500 fas fa-edit"></span></button>
+                                                                                        <button
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-placement="top"
+                                                                                            title="Delete"><span
+                                                                                                class="text-500 fas fa-trash-alt"></span></button>
+                                                                                    </div>
+                                                                                </td>
+
+                                                                            </tr>
+                                                                            <tr class="btn-reveal-trigger">
+                                                                                <td class="name">Michael</td>
+                                                                                <td class="email">michael@example.com
+                                                                                </td>
+                                                                                <td class="age">39</td>
+                                                                                <td
+                                                                                    class="align-middle text-end fs-0 white-space-nowrap payment">
+                                                                                    <span
+                                                                                        class="badge badge rounded-pill badge-soft-success">Success<span
+                                                                                            class="ms-1 fas fa-check"
+                                                                                            data-fa-transform="shrink-2"></span></span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div> <button
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="modal"
+                                                                                            data-bs-target="#error-modal"><span
+                                                                                                class="text-500 fas fa-edit"></span></button>
+                                                                                        <button
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-placement="top"
+                                                                                            title="Delete"><span
+                                                                                                class="text-500 fas fa-trash-alt"></span></button>
+                                                                                    </div>
+                                                                                </td>
+
+                                                                            </tr>
+                                                                            <tr class="btn-reveal-trigger">
+                                                                                <td class="name">Antony</td>
+                                                                                <td class="email">antony@example.com
+                                                                                </td>
+                                                                                <td class="age">39</td>
+                                                                                <td
+                                                                                    class="align-middle text-end fs-0 white-space-nowrap payment">
+                                                                                    <span
+                                                                                        class="badge badge rounded-pill badge-soft-success">Success<span
+                                                                                            class="ms-1 fas fa-check"
+                                                                                            data-fa-transform="shrink-2"></span></span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div> <button
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="modal"
+                                                                                            data-bs-target="#error-modal"><span
+                                                                                                class="text-500 fas fa-edit"></span></button>
+                                                                                        <button
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-placement="top"
+                                                                                            title="Delete"><span
+                                                                                                class="text-500 fas fa-trash-alt"></span></button>
+                                                                                    </div>
+                                                                                </td>
+
+                                                                            </tr>
+                                                                            <tr class="btn-reveal-trigger">
+                                                                                <td class="name">Raymond</td>
+                                                                                <td class="email">raymond@example.com
+                                                                                </td>
+                                                                                <td class="age">52</td>
+                                                                                <td
+                                                                                    class="align-middle text-end fs-0 white-space-nowrap payment">
+                                                                                    <span
+                                                                                        class="badge badge rounded-pill badge-soft-success">Success<span
+                                                                                            class="ms-1 fas fa-check"
+                                                                                            data-fa-transform="shrink-2"></span></span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div> <button
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="modal"
+                                                                                            data-bs-target="#error-modal"><span
+                                                                                                class="text-500 fas fa-edit"></span></button>
+                                                                                        <button
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-placement="top"
+                                                                                            title="Delete"><span
+                                                                                                class="text-500 fas fa-trash-alt"></span></button>
+                                                                                    </div>
+                                                                                </td>
+
+                                                                            </tr>
+                                                                            <tr class="btn-reveal-trigger">
+                                                                                <td class="name">Marie</td>
+                                                                                <td class="email">marie@example.com</td>
+                                                                                <td class="age">30</td>
+                                                                                <td
+                                                                                    class="align-middle text-end fs-0 white-space-nowrap payment">
+                                                                                    <span
+                                                                                        class="badge badge rounded-pill badge-soft-success">Success<span
+                                                                                            class="ms-1 fas fa-check"
+                                                                                            data-fa-transform="shrink-2"></span></span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div> <button
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="modal"
+                                                                                            data-bs-target="#error-modal"><span
+                                                                                                class="text-500 fas fa-edit"></span></button>
+                                                                                        <button
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-placement="top"
+                                                                                            title="Delete"><span
+                                                                                                class="text-500 fas fa-trash-alt"></span></button>
+                                                                                    </div>
+                                                                                </td>
+
+                                                                            </tr>
+                                                                            <tr class="btn-reveal-trigger">
+                                                                                <td class="name">Cohen</td>
+                                                                                <td class="email">cohen@example.com</td>
+                                                                                <td class="age">25</td>
+                                                                                <td
+                                                                                    class="align-middle text-end fs-0 white-space-nowrap payment">
+                                                                                    <span
+                                                                                        class="badge badge rounded-pill badge-soft-success">Success<span
+                                                                                            class="ms-1 fas fa-check"
+                                                                                            data-fa-transform="shrink-2"></span></span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div> <button
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="modal"
+                                                                                            data-bs-target="#error-modal"><span
+                                                                                                class="text-500 fas fa-edit"></span></button>
+                                                                                        <button
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-placement="top"
+                                                                                            title="Delete"><span
+                                                                                                class="text-500 fas fa-trash-alt"></span></button>
+                                                                                    </div>
+                                                                                </td>
+
+                                                                            </tr>
+                                                                            <tr class="btn-reveal-trigger">
+                                                                                <td class="name">Rowen</td>
+                                                                                <td class="email">rowen@example.com</td>
+                                                                                <td class="age">39</td>
+                                                                                <td
+                                                                                    class="align-middle text-end fs-0 white-space-nowrap payment">
+                                                                                    <span
+                                                                                        class="badge badge rounded-pill badge-soft-success">Success<span
+                                                                                            class="ms-1 fas fa-check"
+                                                                                            data-fa-transform="shrink-2"></span></span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div> <button
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="modal"
+                                                                                            data-bs-target="#error-modal"><span
+                                                                                                class="text-500 fas fa-edit"></span></button>
+                                                                                        <button
+                                                                                            class="btn btn-link p-0 ms-2"
+                                                                                            type="button"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-placement="top"
+                                                                                            title="Delete"><span
+                                                                                                class="text-500 fas fa-trash-alt"></span></button>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                                <div class="text-center d-none"
+                                                                    id="pages-table-fallback">
+                                                                    <p class="fw-bold fs-1 mt-3">No Page found</p>
+                                                                </div>
+                                                                <div class="d-flex justify-content-center mt-3"><button
+                                                                        class="btn btn-sm btn-falcon-default me-1"
+                                                                        type="button" title="Previous"
+                                                                        data-list-pagination="prev"><span
+                                                                            class="fas fa-chevron-left"></span></button>
+                                                                    <ul class="pagination mb-0"></ul><button
+                                                                        class="btn btn-sm btn-falcon-default ms-1"
+                                                                        type="button" title="Next"
+                                                                        data-list-pagination="next"><span
+                                                                            class="fas fa-chevron-right">
+                                                                        </span></button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+            <app-footer></app-footer>
+        </div>
+    </div>
+    <div class="modal fade " id="error-modal" role="dialog" aria-hidden="true">
+
+        <div style="width: 600px;" class="modal-dialog modal-lg modal-dialog-centered" role="document">
+
+            <div class="modal-content position-relative">
+                <div class="card">
+                    <div class="bg-holder bg-card"
+                        style="background-image:url(../assets/img/icons/spot-illustrations/corner-5.png);"></div>
+                    <!--/.bg-holder-->
+                    <div class="card-body position-relative">
+                        <div class="row g-2 align-items-sm-center">
+                            <div class="col-auto"><img src="../assets/img/icons/connect-circle.png" alt=""
+                                    height="55" /></div>
+                            <div class="col">
+                                <div class="row align-items-center">
+                                    <div class="col col-lg-8">
+                                        <h5 class="fs-0 mb-3 mb-sm-0 text-primary">Update reseller</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+                    <button class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="col-lg-14 pe-lg-2">
+                        <form [formGroup]="myForm">
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <h6 class="mb-0">Profile Settings</h6>
+                                </div>
+                                <div class="card-body bg-light">
+                                    <div class="row g-3">
+                                        <div class="col-lg-6"> <label class="form-label" for="first-name">FullName
+                                            </label><input formControlName="fullName" class="form-control"
+                                                id="first-name" type="text" value="Anthony" /></div>
+                                        <div class="col-lg-6"> <label class="form-label"
+                                                for="email1">Email</label><input formControlName="email"
+                                                class="form-control" id="email1" type="text"
+                                                value="anthony@gmail.com" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <h6 class="mb-0">Company Settings</h6>
+                                </div>
+                                <div class="card-body bg-light">
+                                    <div class="row g-3">
+
+                                        <div class="col-lg-6"> <label class="form-label" for="first-name">Name
+                                            </label><input formControlName="companyName" class="form-control"
+                                                id="first-name" type="text" value="company" /></div>
+                                        <div class="col-lg-6"> <label class="form-label"
+                                                for="email1">Email</label><input formControlName="companyEmail"
+                                                class="form-control" id="email1" type="text"
+                                                value="company@gmail.com" />
+                                        </div>
+                                        <div class="col-lg-6"> <label class="form-label"
+                                                for="email1">Phone</label><input formControlName="companyPhone"
+                                                class="form-control" id="email1" type="text" value="12345678" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <h6 class="mb-0">Address Settings</h6>
+                                </div>
+                                <div class="card-body bg-light">
+                                    <div class="row g-3">
+                                        <div class="col-lg-6"> <label class="form-label" for="first-name">AddressLine1
+                                            </label><input class="form-control" id="first-name" type="text"
+                                                formControlName="addressLine1" value="new york" /></div>
+                                        <div class="col-lg-6"> <label class="form-label"
+                                                for="email1">AddressLine2</label><input formControlName="addressLine2"
+                                                class="form-control" id="email1" type="text"
+                                                value="anthony@gmail.com" />
+                                        </div>
+                                        <div class="col-lg-6"> <label class="form-label" for="email1">City</label><input
+                                                formControlName="city" class="form-control" id="email1" type="text"
+                                                value="city" />
+                                        </div>
+                                        <div class="col-lg-6"> <label class="form-label"
+                                                for="email1">State</label><input formControlName="state"
+                                                class="form-control" id="email1" type="text" value="state" />
+                                        </div>
+                                        <div class="col-lg-6"> <label class="form-label" for="email1">Zip</label><input
+                                                formControlName="zip" class="form-control" id="email1" type="text"
+                                                value="1000" />
+                                        </div>
+                                        <div class="col-lg-6"> <label class="form-label"
+                                                for="email1">Country</label><input formControlName="country"
+                                                class="form-control" id="email1" type="text" value="America" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" id="clos" type="button" data-bs-dismiss="modal">Annuler</button>
+                    <button class="btn btn-primary" (click)="updateReseller()" type="submit">Confirmer </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+                <div class="modal-header flex-column">
+                    <div class="icon-box">
+                        <i class="material-icons">&#xE5CD;</i>
+                    </div>
+                    <h4 class="modal-title w-100">Are you sure?</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Do you really want to delete this record? This process cannot be undone.</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" id="closs" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" (click)="confirmDelete()" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main><!-- ===============================================-->
+<!--    End of Main Content-->
+<!-- ===============================================-->

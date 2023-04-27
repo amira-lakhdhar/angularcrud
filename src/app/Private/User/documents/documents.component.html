@@ -1,0 +1,250 @@
+<!-- ===============================================-->
+<!--    Main Content-->
+<!-- ===============================================-->
+<main class="main" id="top">
+    <div class="container-fluid" data-layout="container">
+
+        <nav class="navbar navbar-light navbar-vertical navbar-expand-xl">
+            <app-sidebar></app-sidebar>
+        </nav>
+
+        <div class="content">
+            <app-navbar></app-navbar>
+
+                <div class="row mb-3">
+                    <div class="col">
+                      <div class="card bg-100 shadow-none border">
+                        <div class="row gx-0 flex-between-center">
+                          <div class="col-sm-auto d-flex align-items-center"><img class="ms-n2"
+                              src="../assets/img/illustrations/crm-bar-chart.png" alt="" width="90" />
+                            <div>
+                              <h4 class="text-primary fw-bold mb-0">Documents <span class="text-info fw-medium">MSP</span></h4>
+                            </div><img class="ms-n4 d-md-none d-lg-block" src="../assets/img/illustrations/crm-line-chart.png"
+                              alt="" width="150" />
+                          </div>
+                          <div class="col-md-auto p-3">
+                            <form class="row align-items-center g-3">
+                              <div class="col-auto">
+                                <h6 class="text-700 mb-0">Showing Data For: </h6>
+                              </div>
+                              <div class="col-md-auto position-relative"><input
+                                  class="form-control form-control-sm datetimepicker ps-4" id="CRMDateRange" type="text"
+                                  data-options="{&quot;mode&quot;:&quot;range&quot;,&quot;dateFormat&quot;:&quot;M d&quot;,&quot;disableMobile&quot;:true , &quot;defaultDate&quot;: [&quot;Jun 24&quot;, &quot;Jul 01&quot;] }" /><span
+                                  class="fas fa-calendar-alt text-primary position-absolute top-50 translate-middle-y ms-2"> </span>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            <div class="card">
+                <div class="card-body overflow-hidden p-lg-6">
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="card user-card user-card-1">
+                                <div class="nav flex-column nav-pills list-group list-group-flush list-pills"
+                                    id="user-set-tab" role="tablist" aria-orientation="vertical">
+                                    <a class="nav-link list-group-item list-group-item-action active"
+                                        id="user-set-profile-tab" data-bs-toggle="pill" href="#user-set-profile"
+                                        role="tab" aria-controls="user-set-profile" aria-selected="true">
+                                        <span class="f-w-500"><i class="fab fa-buffer"></i>Ressources</span>
+                                        <span class="float-end"><i class="feather icon-chevron-right"></i></span>
+                                    </a>
+                                    <a class="nav-link list-group-item list-group-item-action" id="user-set-email-tab"
+                                        data-bs-toggle="pill" href="#user-set-email" role="tab"
+                                        aria-controls="user-set-email" aria-selected="false">
+                                        <span class="f-w-500 "><i class="fab fa-adobe"></i>Support</span>
+                                        <span class="float-end"><i class="feather icon-chevron-right"></i></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+
+                            <!-- accordion -->
+                            <div class="accordion tab-pane fade active show" id="chapters" id="user-set-profile"
+                                role="tabpanel" aria-labelledby="user-set-profile-tab">
+                                <div class="accordion-item" id="user-set-profile">
+                                    <h2 class="accordion-header" id="heading-1">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#chapter-1" aria-expanded="false"
+                                            aria-controls="chapter-1">
+                                            Guide EN
+                                        </button>
+                                    </h2>
+                                    <div id="chapter-1" class="accordion-collapse collapse show"
+                                        aria-labelledby="heading-1" data-bs-parent="#chapters">
+                                        <div class="accordion-body">
+                                            <div class="card-body p-0">
+                                                <div class="scrollbar-overlay pt-0 px-card ask-analytics">
+                                                    <div
+                                                        class="border border-1 border-300 rounded-2 p-3 ask-analytics-item position-relative mb-3">
+                                                        <div class="d-flex align-items-center mb-3"><span
+                                                                class="fas fa-cloud-download-alt text-primary"></span><a
+                                                                class="stretched-link text-decoration-none" href="#!">
+                                                                <h5 class="fs--1 text-600 mb-0 ps-3">Download</h5>
+                                                            </a></div>
+                                                        <div
+                                                            class="d-flex mb-3 hover-actions-trigger align-items-center">
+                                                            <div class="file-thumbnail"><img class="img-fluid"
+                                                                    src="../assets/img/icons/zip.png" alt="" /></div>
+                                                            <div class="ms-3 flex-shrink-1 flex-grow-1">
+                                                                <h6 class="mb-1"><a
+                                                                        class="stretched-link text-900 fw-semi-bold"
+                                                                        href="#!">
+                                                                        MSP Distributor Guide EN</a></h6>
+                                                                <div class="fs--1"><span
+                                                                        class="fw-semi-bold">Jane</span><span
+                                                                        class="fw-medium text-600 ms-2">27 Sep at 10:30
+                                                                        AM</span></div>
+                                                                <div
+                                                                    class="hover-actions end-0 top-50 translate-middle-y">
+                                                                    <a class="btn btn-light border-300 btn-sm me-1 text-600"
+                                                                        data-bs-toggle="tooltip" data-bs-placement="top"
+                                                                        title="Download"
+                                                                        href="../assets/img/icons/cloud-download.svg"
+                                                                        download="download"><img
+                                                                            src="../assets/img/icons/cloud-download.svg"
+                                                                            alt="" width="15" /></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="border border-1 border-300 rounded-2 p-3 ask-analytics-item position-relative mb-3">
+                                                        <div class="d-flex align-items-center mb-3"><span
+                                                                class="fas fa-cloud-download-alt text-primary"></span><a
+                                                                class="stretched-link text-decoration-none" href="#!">
+                                                                <h5 class="fs--1 text-600 mb-0 ps-3">Download</h5>
+                                                            </a></div>
+                                                        <div
+                                                            class="d-flex mb-3 hover-actions-trigger align-items-center">
+                                                            <div class="file-thumbnail"><img class="img-fluid"
+                                                                    src="../assets/img/icons/docs.png" alt="" /></div>
+                                                            <div class="ms-3 flex-shrink-1 flex-grow-1">
+                                                                <h6 class="mb-1"><a
+                                                                        class="stretched-link text-900 fw-semi-bold"
+                                                                        href="#!">Brochures MSP</a></h6>
+                                                                <div class="fs--1"><span
+                                                                        class="fw-semi-bold">John</span><span
+                                                                        class="fw-medium text-600 ms-2">1 Oct at 4:30
+                                                                        PM</span></div>
+                                                                <div
+                                                                    class="hover-actions end-0 top-50 translate-middle-y">
+                                                                    <a class="btn btn-light border-300 btn-sm me-1 text-600"
+                                                                        data-bs-toggle="tooltip" data-bs-placement="top"
+                                                                        title="Download"
+                                                                        href="../assets/img/icons/cloud-download.svg"
+                                                                        download="download"><img
+                                                                            src="../assets/img/icons/cloud-download.svg"
+                                                                            alt="" width="15" /></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="heading-2">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#chapter-2" aria-expanded="false"
+                                            aria-controls="chapter-2">
+                                            Guide FR
+                                        </button>
+                                    </h2>
+                                    <div id="chapter-2" class="accordion-collapse collapse" aria-labelledby="heading-2"
+                                        data-bs-parent="#chapters">
+                                        <div class="accordion-body">
+                                            <div class="card-body p-0">
+                                                <div class="scrollbar-overlay pt-0 px-card ask-analytics">
+                                                    <div
+                                                        class="border border-1 border-300 rounded-2 p-3 ask-analytics-item position-relative mb-3">
+                                                        <div class="d-flex align-items-center mb-3"><span
+                                                                class="fas fa-cloud-download-alt text-primary"></span><a
+                                                                class="stretched-link text-decoration-none" href="#!">
+                                                                <h5 class="fs--1 text-600 mb-0 ps-3">Télecharger</h5>
+                                                            </a></div>
+                                                        <div
+                                                            class="d-flex mb-3 hover-actions-trigger align-items-center">
+                                                            <div class="file-thumbnail"><img class="img-fluid"
+                                                                    src="../assets/img/icons/zip.png" alt="" /></div>
+                                                            <div class="ms-3 flex-shrink-1 flex-grow-1">
+                                                                <h6 class="mb-1"><a
+                                                                        class="stretched-link text-900 fw-semi-bold"
+                                                                        href="#!">
+                                                                        MSP Distributor Guide EN</a></h6>
+                                                                <div class="fs--1"><span
+                                                                        class="fw-semi-bold">Jane</span><span
+                                                                        class="fw-medium text-600 ms-2">27 Sep at 10:30
+                                                                        AM</span></div>
+                                                                <div
+                                                                    class="hover-actions end-0 top-50 translate-middle-y">
+                                                                    <a class="btn btn-light border-300 btn-sm me-1 text-600"
+                                                                        data-bs-toggle="tooltip" data-bs-placement="top"
+                                                                        title="Download"
+                                                                        href="../assets/img/icons/cloud-download.svg"
+                                                                        download="download"><img
+                                                                            src="../assets/img/icons/cloud-download.svg"
+                                                                            alt="" width="15" /></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="border border-1 border-300 rounded-2 p-3 ask-analytics-item position-relative mb-3">
+                                                        <div class="d-flex align-items-center mb-3"><span
+                                                                class="fas fa-cloud-download-alt text-primary"></span><a
+                                                                class="stretched-link text-decoration-none" href="#!">
+                                                                <h5 class="fs--1 text-600 mb-0 ps-3">Télecharger</h5>
+                                                            </a></div>
+                                                        <div
+                                                            class="d-flex mb-3 hover-actions-trigger align-items-center">
+                                                            <div class="file-thumbnail"><img class="img-fluid"
+                                                                    src="../assets/img/icons/docs.png" alt="" /></div>
+                                                            <div class="ms-3 flex-shrink-1 flex-grow-1">
+                                                                <h6 class="mb-1"><a
+                                                                        class="stretched-link text-900 fw-semi-bold"
+                                                                        href="#!">Brochures MSP</a></h6>
+                                                                <div class="fs--1"><span
+                                                                        class="fw-semi-bold">John</span><span
+                                                                        class="fw-medium text-600 ms-2">1 Oct at 4:30
+                                                                        PM</span></div>
+                                                                <div
+                                                                    class="hover-actions end-0 top-50 translate-middle-y">
+                                                                    <a class="btn btn-light border-300 btn-sm me-1 text-600"
+                                                                        data-bs-toggle="tooltip" data-bs-placement="top"
+                                                                        title="Download"
+                                                                        href="../assets/img/icons/cloud-download.svg"
+                                                                        download="download"><img
+                                                                            src="../assets/img/icons/cloud-download.svg"
+                                                                            alt="" width="15" /></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <app-footer></app-footer>
+        </div>
+    </div>
+
+</main><!-- ===============================================-->
+<!--    End of Main Content-->
+<!-- ===============================================-->

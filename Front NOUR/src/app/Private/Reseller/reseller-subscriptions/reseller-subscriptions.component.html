@@ -1,0 +1,276 @@
+<!-- ===============================================-->
+<!--    Main Content-->
+<!-- ===============================================-->
+<main class="main" id="top">
+    <div class="container-fluid" data-layout="container">
+
+        <nav class="navbar navbar-light navbar-vertical navbar-expand-xl">
+            <app-sidebar></app-sidebar>
+        </nav>
+
+        <div class="content">
+            <app-navbar></app-navbar>
+            <div class="row mb-3">
+                <div class="col">
+                    <div class="card bg-100 shadow-none border">
+                        <div class="row gx-0 flex-between-center">
+                            <div class="col-sm-auto d-flex align-items-center"><img class="ms-n2"
+                                    src="../assets/img/illustrations/crm-bar-chart.png" alt="" width="90" />
+                                <div>
+                                    <h4 class="text-primary fw-bold mb-0">{{"Subscriptions"|translate}} <span
+                                            class="text-info fw-medium">MSP</span></h4>
+                                </div><img class="ms-n4 d-md-none d-lg-block"
+                                    src="../assets/img/illustrations/crm-line-chart.png" alt="" width="150" />
+                            </div>
+                            <div class="col-md-auto p-3">
+                                <form class="row align-items-center g-3">
+                                    <div class="col-auto">
+                                        <h6 class="text-700 mb-0">{{"Showing Data For:"|translate}} </h6>
+                                    </div>
+                                    <div class="col-md-auto position-relative"><input
+                                            class="form-control form-control-sm datetimepicker ps-4" id="CRMDateRange"
+                                            type="text"
+                                            data-options="{&quot;mode&quot;:&quot;range&quot;,&quot;dateFormat&quot;:&quot;M d&quot;,&quot;disableMobile&quot;:true , &quot;defaultDate&quot;: [&quot;Jun 24&quot;, &quot;Jul 01&quot;] }" /><span
+                                            class="fas fa-calendar-alt text-primary position-absolute top-50 translate-middle-y ms-2">
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class=" mb-3">
+                    <div class="card-header">
+                        <div class="row flex-between-end">
+                        </div>
+                    </div>
+                    <div class="card-body pt-0">
+                        <div class="tab-content">
+                            <div class="tab-pane preview-tab-pane active" role="tabpanel"
+                                aria-labelledby="tab-dom-603ac24c-ea41-4c86-96c0-b0f750fb6de0"
+                                id="dom-603ac24c-ea41-4c86-96c0-b0f750fb6de0">
+                                <div id="tableExample2" 
+                                    data-list='{"valueNames":["name","email","age" , "payment" , "client"],"page":5,"pagination":true , "filter": true, "fallback":"pages-table-fallback"}'>
+                                    <div class="row" >
+                                        <div class="col-4">
+                                            <div class="col-auto px-3"> <select class="form-select form-select-sm mb-3"
+                                                    aria-label="Bulk actions" data-list-filter="data-list-filter">
+                                                    <option selected="" value="">{{"Select Subscriptions status"|translate}}</option>
+                                                    <option value="Trial">{{"Trial"|translate}}</option>
+                                                    <option value="Commercial">{{"Commercial"|translate}}</option>
+                                                    <option value="Expired">{{"Expired"|translate}}</option>
+                                                </select></div>
+                                        </div>
+                                        <div class="col-2"></div>
+                                        <div class="col-4">
+
+                                            <div class="h-100">
+                                                <form>
+                                                    <div class="input-group"><input
+                                                            class="form-control form-control-sm  search" type="search"
+                                                            placeholder="Search for a ..." aria-label="search" />
+                                                        <div class="input-group-text bg-transparent">
+                                                            <span class="fa fa-search fs--1 text-600"></span>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <button class="btn btn-falcon-default btn-sm" type="button">
+                                            <span class="fas fa-plus" data-fa-transform="shrink-3 down-2"></span>
+                                            <span class="d-none d-sm-inline-block ms-1">{{"New"|translate}}</span></button>
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive scrollbar">
+                                        <table class="table table-bordered table-striped fs--1 mb-0">
+                                            <thead class="bg-200 text-900">
+                                                <tr>
+                                                    <th class="sort" data-sort="name">{{"Name of subscriptions"|translate}}</th>
+                                                    <th class="sort" data-sort="email">{{"Product"|translate}}
+                                                    </th>
+                                                    <th class="sort" data-sort="age">{{"Quantity"|translate}}
+                                                    </th>
+                                                    <th class="sort align-middle white-space-nowrap text-end pe-4"
+                                                        data-sort="payment">{{"Statut"|translate}}</th>
+
+                                                    <th>{{"Custemer"|translate}}</th>
+                                                    <th>{{"Actions"|translate}}</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody class="list" id="table-purchase-body">
+                                                <tr class="btn-reveal-trigger">
+                                                    <td class="name"><a class="text-primary fw-semi-bold"
+                                                            href="#!">Abonne-12532</a></td>
+                                                    <td class="email">prod 1</td>
+                                                    <td class="age">1</td>
+                                                    <td class="align-middle text-end fs-0 white-space-nowrap payment">
+                                                        <span
+                                                            class="badge badge rounded-pill badge-soft-success">Commercial<span
+                                                                class="ms-1 fas fa-check"
+                                                                data-fa-transform="shrink-2"></span></span>
+                                                    </td>
+                                                    <td class="client"> client 1</td>
+                                                    <td>
+                                                        <div> <button class="btn btn-link p-0 ms-2" type="button"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#error-modal"><span
+                                                                    class="text-500 fas fa-edit"></span></button>
+                                                            <button class="btn btn-link p-0 ms-2" type="button"
+                                                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                                                title="Delete"><span
+                                                                    class="text-500 fas fa-trash-alt"></span></button>
+                                                        </div>
+                                                    </td>
+
+
+                                                </tr>
+                                                <tr class="btn-reveal-trigger">
+                                                    <td class="name"><a class="text-primary fw-semi-bold"
+                                                            href="#!">abonn-10569</a></td>
+                                                    <td class="email">OneTECH</td>
+                                                    <td class="age">2</td>
+                                                    <td class="align-middle text-end fs-0 white-space-nowrap payment">
+                                                        <span
+                                                            class="badge badge rounded-pill badge-soft-secondary">Expired<span
+                                                                class="ms-1 fas fa-ban"
+                                                                data-fa-transform="shrink-2"></span></span>
+                                                    </td>
+                                                    <td class="client">Client 2</td>
+                                                    <td>
+                                                        <div> <button class="btn btn-link p-0 ms-2" type="button"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#error-modal"><span
+                                                                    class="text-500 fas fa-edit"></span></button>
+                                                            <button class="btn btn-link p-0 ms-2" type="button"
+                                                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                                                title="Delete"><span
+                                                                    class="text-500 fas fa-trash-alt"></span></button>
+                                                        </div>
+                                                    </td>
+
+                                                </tr>
+                                                <tr class="btn-reveal-trigger">
+                                                    <td class="name"><a class="text-primary fw-semi-bold"
+                                                            href="#!">Abonn 0982</a></td>
+                                                    <td class="email">produT 3</td>
+                                                    <td class="age">52</td>
+                                                    <td class="align-middle text-end fs-0 white-space-nowrap payment">
+                                                        <span
+                                                            class="badge badge rounded-pill badge-soft-warning">Trial<span
+                                                                class="ms-1 fas fa-stream"
+                                                                data-fa-transform="shrink-2"></span></span>
+                                                    </td>
+                                                    <td class="client">client 3</td>
+                                                    <td>
+                                                        <div> <button class="btn btn-link p-0 ms-2" type="button"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#error-modal"><span
+                                                                    class="text-500 fas fa-edit"></span></button>
+                                                            <button class="btn btn-link p-0 ms-2" type="button"
+                                                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                                                title="Delete"><span
+                                                                    class="text-500 fas fa-trash-alt"></span></button>
+                                                        </div>
+                                                    </td>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="text-center d-none" id="pages-table-fallback">
+                                        <p class="fw-bold fs-1 mt-3">{{"No Page found"|translate}}</p>
+                                    </div>
+                                    <div class="d-flex justify-content-center mt-3"><button
+                                            class="btn btn-sm btn-falcon-default me-1" type="button" title="Previous"
+                                            data-list-pagination="prev"><span
+                                                class="fas fa-chevron-left"></span></button>
+                                        <ul class="pagination mb-0"></ul><button
+                                            class="btn btn-sm btn-falcon-default ms-1" type="button" title="Next"
+                                            data-list-pagination="next"><span class="fas fa-chevron-right">
+                                            </span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <app-footer></app-footer>
+        </div>
+    </div>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+    <!-- [ Main Content ] start -->
+
+    <div class="modal fade" id="error-modal" tabindex="-1" role="dialog" aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
+
+            <div class="modal-content position-relative">
+
+                <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+                    <button class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="bg-holder bg-card" style="background-image:url(../assets/img/icons/spot-illustrations/corner-2.png);"></div>
+
+                    <div class="rounded-top-lg py-3 ps-4 pe-6 bg-light">
+                        <h4 class="mb-1" id="modalExampleDemoLabel">{{"Update custemer"|translate}} </h4>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <label class="col-form-label" for="recipient-name">{{"Name of subscriptions"|translate}}</label>
+                                    <input class="form-control" id="recipient-name" type="text" />
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="col-form-label" for="message-text">{{"Email"|translate}}</label>
+                                    <input class="form-control" id="recipient-name" type="text" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <label class="col-form-label" for="recipient-name">{{"Name of subscriptions"|translate}}</label>
+                                    <input class="form-control" id="recipient-name" type="text" />
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="col-form-label" for="message-text">{{"Email"|translate}}</label>
+                                    <input class="form-control" id="recipient-name" type="text" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <label class="col-form-label" for="recipient-name">{{"Name of subscriptions"|translate}}</label>
+                                    <input class="form-control" id="recipient-name" type="text" />
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="col-form-label" for="message-text">{{"Email"|translate}}</label>
+                                    <input class="form-control" id="recipient-name" type="text" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <label class="col-form-label" for="recipient-name">{{"Country"|translate}}</label>
+                                    <input class="form-control" id="recipient-name" type="text" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">{{"Close"|translate}}</button>
+                    <button class="btn btn-primary" type="button">{{"Understood"|translate}} </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

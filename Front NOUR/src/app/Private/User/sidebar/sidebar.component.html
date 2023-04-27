@@ -1,0 +1,168 @@
+<div class="d-flex align-items-center">
+  <div class="toggle-icon-wrapper">
+    <button class="btn navbar-toggler-humburger-icon navbar-vertical-toggle" data-bs-toggle="tooltip"
+      data-bs-placement="left" title="Toggle Navigation"><span class="navbar-toggle-icon"><span
+          class="toggle-line"></span></span></button>
+  </div><a class="navbar-brand" href="../index-2.html">
+    <div class="d-flex align-items-center py-3"><img class="me-2" src="../../../../assets/img/logos/logo.png"
+        alt="" width="100" /></div>
+  </a>
+</div>
+<div class="collapse navbar-collapse" id="navbarVerticalCollapse">
+  <div class="navbar-vertical-content scrollbar">
+    <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav">
+      <br>
+      <li class="nav-item" >
+        <a class="nav-link" role="button" data-bs-toggle="" aria-expanded="false">
+          <div class="d-flex align-items-center">
+            <span class="nav-link-icon">
+              <span class="fas fa-chart-pie"></span>
+            </span>
+            <span class="nav-link-text ps-1" routerLink="/home">{{"Dashboard"}} </span>
+          </div>
+        </a>
+      </li>
+       <li class="nav-item" *ngIf="role == 'Reseller'">
+        <a class="nav-link" role="button" data-bs-toggle="" aria-expanded="false">
+          <div class="d-flex align-items-center">
+            <span class="nav-link-icon">
+              <span class="fas fa-chart-pie"></span>
+            </span>
+            <span class="nav-link-text ps-1" routerLink="/dashboardReseller">Dashboard </span>
+          </div>
+        </a>
+      </li> 
+      <br>
+      <li class="nav-item" >
+
+        <a class="nav-link" role="button" data-bs-toggle="" aria-expanded="false">
+          <div class="d-flex align-items-center">
+            <span class="nav-link-icon">
+              <span class="far fa-id-card"></span>
+            </span>
+            <span class="nav-link-text ps-1" routerLink="/subscriptions">{{"Subscriptions" | translate}}</span>
+          </div>
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="role == 'Reseller'">
+
+        <a class="nav-link" role="button" data-bs-toggle="" aria-expanded="false">
+          <div class="d-flex align-items-center">
+            <span class="nav-link-icon">
+              <span class="far fa-id-card"></span>
+            </span>
+            <span class="nav-link-text ps-1" routerLink="/reseller/subscriptions">{{"Subscriptions" | translate}}</span>
+          </div>
+        </a>
+      </li>
+
+      <br>
+
+      <li class="nav-item" >
+        <a class="nav-link" role="button" data-bs-toggle="" aria-expanded="false">
+          <div class="d-flex align-items-center">
+            <span class="nav-link-icon">
+              <span class="fas fa-users"></span>
+            </span>
+            <span class="nav-link-text ps-1" routerLink="/clients">{{"Clients"|translate}}</span>
+          </div>
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="role == 'Reseller'">
+        <a class="nav-link" role="button" data-bs-toggle="" aria-expanded="false">
+          <div class="d-flex align-items-center">
+            <span class="nav-link-icon">
+              <span class="fas fa-users"></span>
+            </span>
+            <span class="nav-link-text ps-1" routerLink="/reseller/clients">{{"Clients"|translate}}</span>
+          </div>
+        </a>
+      </li>
+
+      <br>
+
+      <li class="nav-item" >
+        <a class="nav-link" role="button" data-bs-toggle="" aria-expanded="false">
+          <div class="d-flex align-items-center">
+            <span class="nav-link-icon">
+              <span class="fas fa-shopping-cart"></span>
+            </span>
+            <span class="nav-link-text ps-1" routerLink="/quotations">{{"Quotes"|translate}}</span>
+          </div>
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="role == 'Reseller'">
+        <a class="nav-link" role="button" data-bs-toggle="" aria-expanded="false">
+          <div class="d-flex align-items-center">
+            <span class="nav-link-icon">
+              <span class="fas fa-shopping-cart"></span>
+            </span>
+            <span class="nav-link-text ps-1" routerLink="/reseller/quotes">{{"Quotes"|translate}}</span>
+          </div>
+        </a>
+      </li>
+
+      <br>
+
+      <li class="nav-item" >
+        <a class="nav-link" role="button" data-bs-toggle="" aria-expanded="false">
+          <div class="d-flex align-items-center">
+            <span class="nav-link-icon">
+              <span class="fas fa-file-invoice-dollar"></span>
+            </span>
+            <span class="nav-link-text ps-1" routerLink="/invoices">{{"Billing"|translate}}</span>
+          </div>
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="role == 'Reseller'">
+        <a class="nav-link" role="button" data-bs-toggle="" aria-expanded="false">
+          <div class="d-flex align-items-center">
+            <span class="nav-link-icon">
+              <span class="fas fa-file-invoice-dollar"></span>
+            </span>
+            <span class="nav-link-text ps-1" routerLink="/reseller/invoices">{{"Billing"|translate}}</span>
+          </div>
+        </a>
+      </li>
+
+      <br>
+
+      <li class="nav-item" >
+        <a class="nav-link" role="button" data-bs-toggle="" aria-expanded="false">
+          <div class="d-flex align-items-center">
+            <span class="nav-link-icon">
+              <span class="fas fa-chart-bar"></span>
+            </span>
+            <span class="nav-link-text ps-1" routerLink="/resellers">{{"Resellers"|translate}}</span>
+          </div>
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="role == 'Reseller'">
+        <a class="nav-link" role="button" data-bs-toggle="" aria-expanded="false">
+          <div class="d-flex align-items-center">
+            <span class="nav-link-icon">
+              <span class="fas fa-chart-bar"></span>
+            </span>
+            <span class="nav-link-text ps-1" routerLink="/reseller/products">Products</span>
+          </div>
+        </a>
+      </li>
+
+      <br>
+
+      <li class="nav-item">
+        <a class="nav-link" role="button" data-bs-toggle="" aria-expanded="false">
+          <div class="d-flex align-items-center">
+            <span class="nav-link-icon">
+              <span class="fas fa-folder-open"></span>
+            </span>
+            <span class="nav-link-text ps-1" routerLink="/documents">{{"Documents"|translate}}</span>
+          </div>
+        </a>
+      </li>
+
+
+    </ul>
+  
+  </div>
+</div>

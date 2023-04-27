@@ -1,0 +1,350 @@
+<main class="main" id="top">
+    <div class="container-fluid" data-layout="container">
+
+        <nav class="navbar navbar-light navbar-vertical navbar-expand-xl">
+            <app-sidebar></app-sidebar>
+        </nav>
+
+        <div class="content">
+            <app-navbar></app-navbar>
+            <div class="row mb-3">
+                <div class="col" style="margin-top: 10px;">
+                    <div class="card bg-100 shadow-none border">
+                        <div class="row gx-0 flex-between-center">
+                            <div class="col-sm-auto d-flex align-items-center"><img class="ms-n2"
+                                    src="../assets/img/illustrations/crm-bar-chart.png" alt="" width="90" />
+                                <div>
+                                    <h4 class="text-primary fw-bold mb-0">Articles <span
+                                            class="text-info fw-medium">MSP</span></h4>
+                                </div><img class="ms-n4 d-md-none d-lg-block"
+                                    src="../assets/img/illustrations/crm-line-chart.png" alt="" width="150" />
+                            </div>
+                            <div class="col-md-auto p-3">
+                                <form class="row align-items-center g-3">
+                                    <div class="col-auto">
+                                        <h6 class="text-700 mb-0">Showing Data For: </h6>
+                                    </div>
+                                    <div class="col-md-auto position-relative"><input
+                                            class="form-control form-control-sm datetimepicker ps-4" id="CRMDateRange"
+                                            type="text"
+                                            data-options="{&quot;mode&quot;:&quot;range&quot;,&quot;dateFormat&quot;:&quot;M d&quot;,&quot;disableMobile&quot;:true , &quot;defaultDate&quot;: [&quot;Jun 24&quot;, &quot;Jul 01&quot;] }" /><span
+                                            class="fas fa-calendar-alt text-primary position-absolute top-50 translate-middle-y ms-2">
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <ul class="navbar-nav align-items-center d-none d-lg-block">
+                <li class="nav-item">
+                    <div class="search-box" data-list='{"valueNames":["title"]}'>
+                        <form class="position-relative" data-bs-toggle="search" data-bs-display="static"><input
+                                class="form-control search-input fuzzy-search" type="search" placeholder="Search..."
+                                aria-label="Search" />
+                            <span class="fas fa-search search-box-icon"></span>
+                        </form>
+                        <div class="btn-close-falcon-container position-absolute end-0 top-50 translate-middle shadow-none"
+                            data-bs-dismiss="search">
+                            <div class="btn-close-falcon" aria-label="Close"></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="card" style="margin-top: 16px;">
+                <div class=" mb-3">
+                    <div class="card-header">
+                        <div class="row flex-between-end">
+                        </div>
+                    </div>
+                    <div class="card-body pt-0">
+                        <div class="tab-content">
+                            <div class="tab-pane preview-tab-pane active" role="tabpanel"
+                                aria-labelledby="tab-dom-603ac24c-ea41-4c86-96c0-b0f750fb6de0"
+                                id="dom-603ac24c-ea41-4c86-96c0-b0f750fb6de0">
+                                <div id="tableExample2"
+                                    data-list='{"valueNames":["name","email","age" , "payment" , "client"],"page":5,"pagination":true , "filter": true, "fallback":"pages-table-fallback"}'>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                data-bs-target="#addArticleDialog">+ Add article</button>
+                                        </div>
+                                        <div class="col-sm-4"></div>
+                                        <div class="col-sm-4">
+
+                                            <div class="h-100 ">
+                                                <form>
+                                                    <div class="input-group"><input
+                                                            class="form-control form-control-sm  search" type="search"
+                                                            placeholder="Search for a ..." aria-label="search" />
+                                                        <div class="input-group-text bg-transparent">
+                                                            <span class="fa fa-search fs--1 text-600"></span>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive scrollbar" style="margin-top: 10px;">
+                                        <table class="table table-bordered table-striped fs--1 mb-0">
+                                            <thead class="bg-200 text-900">
+                                                <tr>
+                                                    <th class="sort" data-sort="nomArt">Name</th>
+                                                    <th class="sort" data-sort="description">Description </th>
+                                                    <th class="sort" data-sort="price">Price </th>
+                                                    <th class="sort" data-sort="stock">Stock </th>
+                                                    <th class="sort" data-sort="typeArticle">Category </th>
+                                                    <th class="sort" data-sort="creationDate">Date </th>
+
+                                                    <th class="sort align-middle white-space-nowrap text-end pe-4"
+                                                        data-sort="payment">Action</th>
+
+
+                                                </tr>
+                                            </thead>
+                                            <tbody class="list" id="table-purchase-body" *ngFor=" let art of articles">
+                                                <tr class="btn-reveal-trigger">
+                                                    <td class="name"><a class="text-primary fw-semi-bold" href="#!">
+                                                            {{art.nomArt}}</a></td>
+                                                    <td class="email">{{art.description}}</td>
+                                                    <td class="age">{{art.price}}</td>
+                                                    <td class="age">{{art.stock}}</td>
+
+
+                                                    <td class="client"> {{art.typeArticle}}</td>
+                                                    <td class="client"> {{art.creationDate}}</td>
+                                                    <td>
+                                                        <div> <button class="btn btn-link p-0 ms-2" type="button"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#addArticleDialog"
+                                                                (click)="editArticle(art)"><span
+                                                                    class="text-500 fas fa-edit"></span></button>
+                                                            <button class="btn btn-link p-0 ms-2" type="button"
+                                                                data-bs-toggle="modal" (click)="deleteDialog(art.idArt)" data-bs-target="#deleteArticle"
+                                                                title="Delete"><span
+                                                                    class="text-500 fas fa-trash-alt"></span></button>
+                                                        </div>
+                                                    </td>
+
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="text-center d-none" id="pages-table-fallback">
+                                        <p class="fw-bold fs-1 mt-3">No Page found</p>
+                                    </div>
+                                    <div class="d-flex justify-content-center mt-3"><button
+                                            class="btn btn-sm btn-falcon-default me-1" type="button" title="Previous"
+                                            data-list-pagination="prev"><span
+                                                class="fas fa-chevron-left"></span></button>
+                                        <ul class="pagination mb-0"></ul><button
+                                            class="btn btn-sm btn-falcon-default ms-1" type="button" title="Next"
+                                            data-list-pagination="next"><span class="fas fa-chevron-right">
+                                            </span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <app-footer></app-footer>
+        </div>
+
+    </div>
+    <div class="modal fade " id="error-modal" role="dialog" aria-hidden="true">
+
+        <div style="width: 600px;" class="modal-dialog modal-lg modal-dialog-centered" role="document">
+
+            <div class="modal-content position-relative">
+                <div class="card">
+                    <div class="bg-holder bg-card"
+                        style="background-image:url(../assets/img/icons/spot-illustrations/corner-5.png);"></div>
+                    <!--/.bg-holder-->
+                    <div class="card-body position-relative">
+                        <div class="row g-2 align-items-sm-center">
+                            <div class="col-auto"><img src="../assets/img/icons/connect-circle.png" alt=""
+                                    height="55" /></div>
+                            <div class="col">
+                                <div class="row align-items-center">
+                                    <div class="col col-lg-8">
+                                        <h5 class="fs-0 mb-3 mb-sm-0 text-primary">Update customer</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+                    <button class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="col-lg-14 pe-lg-2">
+                        <form>
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <h6 class="mb-0">Customer Settings</h6>
+                                </div>
+                                <div class="card-body bg-light">
+                                    <div class="row g-3">
+                                        <div class="col-lg-6"> <label class="form-label" for="first-name">FullName
+                                            </label><input class="form-control" id="first-name" type="text"
+                                                value="Anthony" /></div>
+                                        <div class="col-lg-6"> <label class="form-label"
+                                                for="email1">Email</label><input class="form-control" id="email1"
+                                                type="text" value="anthony@gmail.com" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" id="clos" type="button" data-bs-dismiss="modal">Annuler</button>
+                    <button class="btn btn-primary" type="submit">Confirmer </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addArticleDialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div style="width: 600px;" class="modal-dialog modal-lg modal-dialog-centered" role="document">
+
+            <div class="modal-content position-relative">
+                <div class="card">
+                    <div class="bg-holder bg-card"
+                        style="background-image:url(../assets/img/icons/spot-illustrations/corner-5.png);"></div>
+
+                    <div class="card-body position-relative">
+                        <div class="row g-2 align-items-sm-center">
+                            <div class="col-auto"><img src="../assets/img/icons/connect-circle.png" alt=""
+                                    height="55" /></div>
+                            <div class="col">
+                                <div class="row align-items-center">
+                                    <div class="col col-lg-8">
+                                        <h5 class="fs-0 mb-3 mb-sm-0 text-primary">Add article</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+                    <button class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
+                        data-bs-dismiss="modal" aria-label="Close" (click)="hideME()"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <form style="padding: 20px;">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="nameArt">Article name</label>
+                                    <input type="text" name="articlename" [(ngModel)]="article.nomArt"
+                                        class="form-control" id="nameArt" aria-describedby="nameArt"
+                                        placeholder="Enter name article">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="price">Price</label>
+                                    <input type="number" name="price" [(ngModel)]="article.price" class="form-control"
+                                        id="price" aria-describedby="price" placeholder="Enter price">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="stock">Stock</label>
+                                    <input type="number" name="stock" [(ngModel)]="article.stock" class="form-control"
+                                        id="stock" aria-describedby="price" placeholder="Enter stock">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="emplacement">Emplacement</label>
+                                    <input type="text" name="emplacement" [(ngModel)]="article.emplacement"
+                                        class="form-control" id="emplacement" aria-describedby="emplacement"
+                                        placeholder="Enter emplacement">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="type">Type article</label>
+                                    <select class="form-control" id="type" placeholder="Select type" name="typeArticle"
+                                        [(ngModel)]="article.typeArticle">
+                                        <option value="STANDARD">STANDARD</option>
+                                        <option value="ALIMENTARY">ALIMENTARY</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="desc">Description</label>
+                                    <textarea class="form-control" name="desc"
+                                        [(ngModel)]="article.description"> </textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" id="clos" type="button" data-bs-dismiss="modal">Cancel</button>
+                    <button class="btn btn-primary" data-bs-dismiss="modal" *ngIf="!modifi" (click)="addArticle()">Add </button>
+                    <button class="btn btn-primary" data-bs-dismiss="modal" *ngIf="modifi" (click)="addArticle()">Edit </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade " id="deleteArticle" role="dialog" aria-hidden="true"> 
+
+        <div style="width: 600px;" class="modal-dialog modal-lg modal-dialog-centered" role="document">
+
+            <div class="modal-content position-relative">
+                <div class="card">
+                    <div class="bg-holder bg-card"
+                        style="background-image:url(../assets/img/icons/spot-illustrations/corner-5.png);"></div>
+                    <!--/.bg-holder-->
+                    <div class="card-body position-relative">
+                        <div class="row g-2 align-items-sm-center">
+                            <div class="col-auto"><img src="../assets/img/icons/connect-circle.png" alt=""
+                                    height="55" /></div>
+                            <div class="col">
+                                <div class="row align-items-center">
+                                    <div class="col col-lg-8">
+                                        <h5 class="fs-0 mb-3 mb-sm-0 text-primary">Delete article</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+                    <button class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <h6 style="margin-left: 30px;">Veuillez Confirmer cet action </h6>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" id="clos" type="button" data-bs-dismiss="modal">Annuler</button>
+                    <button class="btn btn-primary" type="submit" (click)="deleteME()" data-bs-dismiss="modal">Confirmer </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

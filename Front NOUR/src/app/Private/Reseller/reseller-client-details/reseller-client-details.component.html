@@ -1,0 +1,550 @@
+<main class="main" id="top">
+    <div class="container-fluid" data-layout="container">
+
+        <nav class="navbar navbar-light navbar-vertical navbar-expand-xl">
+
+            <app-sidebar></app-sidebar>
+        </nav>
+
+        <div class="content">
+            <app-navbar></app-navbar>
+            <div class="content">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-8">
+                                <h5 class="mb-2">{{customer.Contacts.companyName}} &nbsp; <a
+                                        href="mailto:tony@gmail.com">{{customer.Contacts.email}}</a></h5>
+
+                                <div class="d-flex"><span class="fas fa-user text-success me-2"
+                                        data-fa-transform="down-5"></span>
+                                    <div class="flex-1">
+                                        <p class="mb-0">{{"Customer was created"|translate}}</p>
+                                        <p class="fs--1 mb-0 text-600">{{createdDate}} , {{createdTime}}</p>
+                                    </div>
+
+                                </div>
+                                <br><br>
+
+                                <button data-bs-toggle="modal" data-bs-target="#error-modal2"
+                                    class="btn btn-outline-primary me-1 mb-1" type="button"><span
+                                        class="fas fa-plus me-1" data-fa-transform="shrink-3"> </span>
+                                        {{"New custemer"| translate}}</button>
+
+
+
+                            </div>
+
+
+                            <div class="col-4">
+                                <button data-bs-toggle="modal" data-bs-target="#error-modal"
+                                    (click)=updateItem(customer) class="btn btn-falcon-primary btn-sm px-3"
+                                    type="button"><span class="fas fa-pencil-alt fs--2 me-1"></span>{{"Update"| translate}}</button>
+                                <button (click)="changeStatus(customer)" class="btn btn-falcon-default btn-sm px-3 ms-2"
+                                    type="button"><span class="far fa-file-archive "></span>&nbsp;{{status}}</button>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h5 class="mb-0">{{"Details"| translate}}</h5>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body bg-light border-top">
+                        <div class="row">
+                            <div class="col-lg col-xxl-5">
+                                <div class="d-flex align-items-center">
+                                    <div
+                                        class="icon-item icon-item-sm bg-soft-primary shadow-none me-2 bg-soft-primary">
+                                        <span class="fs--2 far fa-user text-primary"></span>
+                                    </div>
+                                    <h6 class="fw-semi-bold ls mb-0 text-uppercase">
+                                        {{"Account Information"| translate}}</h6>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-5 col-sm-4">
+                                        <p class="fw-semi-bold mb-1">{{"Custemer name"| translate}}</p>
+                                    </div>
+                                    <div class="col">{{customer.Contacts.companyName}}</div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-5 col-sm-4">
+                                        <p class="fw-semi-bold mb-1">{{"Phone number "|translate}}</p>
+                                    </div>
+                                    <div class="col">{{customer.Contacts.phone}}</div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-5 col-sm-4">
+                                        <p class="fw-semi-bold mb-1">{{"E-mail de la société"| translate}}</p>
+                                    </div>
+                                    <div class="col"><a href="mailto:tony@gmail.com">{{customer.Contacts.email}}</a>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-5 col-sm-4">
+                                        <p class="fw-semi-bold mb-1">{{"TVA"|translate}}</p>
+                                    </div>
+                                    <div class="col">{{"Not specified"| translate}}</div>
+                                </div>
+                                <br> <br>
+                                <div class="row">
+                                    <div class="col-5 col-sm-4">
+                                        <p class="fw-semi-bold mb-1">{{"Owner"| translate}}</p>
+                                    </div>
+                                    <div class="col">{{customer.Informations.createdBy}}</div>
+                                </div>
+
+
+                            </div>
+
+
+                            <div class="col-lg col-xxl-5 mt-4 mt-lg-0 offset-xxl-1">
+
+                                <br>
+                                <br>
+                                <div class="row">
+                                    <div class="col-5 col-sm-4">
+                                        <p class="fw-semi-bold mb-1">{{"City"| translate}}</p>
+                                    </div>
+                                    <div class="col"><a href="mailto:tony@gmail.com">{{customer.Address.country}}</a>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-5 col-sm-4">
+                                        <p class="fw-semi-bold mb-1">{{"State"| translate}}</p>
+                                    </div>
+                                    <div class="col">{{customer.Address.state}}</div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-5 col-sm-4">
+                                        <p class="fw-semi-bold mb-1">{{"Country"| translate}}</p>
+                                    </div>
+                                    <div class="col">{{customer.Address.city}}</div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-5 col-sm-4">
+                                        <p class="fw-semi-bold mb-1">{{"Postal code"| translate}}
+                                        </p>
+                                    </div>
+                                    <div class="col">{{customer.Address.zip}}</div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-5 col-sm-4">
+                                        <p class="fw-semi-bold mb-1">{{"Street"| translate}}</p>
+                                    </div>
+                                    <div class="col">{{customer.Address.addressLine1}}</div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-5 col-sm-6">
+                                        <p class="fw-semi-bold mb-1">{{"Identifiant de client externe"| translate}}
+                                        </p>
+                                    </div>
+                                    <div class="col">{{"Not specified"| translate}}</div>
+                                </div>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <div class="card-body bg-light border-top">
+                        <div class="row">
+                            <div class="col-lg col-xxl-5">
+                                <br>
+                                <div class="row">
+                                    <div class="col-5 col-sm-2">
+                                        <p class="fw-semi-bold mb-1">{{"Créé par :"| translate}} </p>
+                                    </div>
+                                    <div class="col"> {{customer.Informations.createdBy}}</div>
+
+                                    <div class="col-5 col-sm-3">
+                                        <p class="fw-semi-bold mb-1">{{"Dernière modification par :"| translate}}</p>
+                                    </div>
+                                    <div class="col">{{customer.Informations.lastUpdateBy}}</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="card mb-3">
+                    <div class="card-body bg-light border-top">
+                        <div class="row">
+                            <div class="col-lg col-xxl-5">
+                                <div class="d-flex align-items-center">
+                                    <div
+                                        class="icon-item icon-item-sm bg-soft-primary shadow-none me-2 bg-soft-primary">
+                                        <span class="fs--2 far fa-user text-primary"></span>
+                                    </div>
+
+                                    <h6 class="fw-semi-bold ls mb-0 text-uppercase">
+                                        Devis CPQ</h6>
+                                </div>
+                                <br>
+                                <div class="table-responsive scrollbar">
+                                    <table class="table table-bordered table-striped fs--1 mb-0">
+                                        <thead class="bg-200 text-900">
+                                            <tr>
+                                                <th class="sort" data-sort="num">{{"Quotes number"| translate}}</th>
+                                                <th class="sort" data-sort="statu">{{"Statut"| translate}}</th>
+                                                <th class="sort" data-sort="Distributeur">{{"Distributeur"| translate}}</th>
+                                                <th class="sort align-middle white-space-nowrap text-end pe-4"
+                                                    data-sort="id">{{"Create by"| translate}}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="list" id="table-purchase-body">
+                                            <tr class="btn-reveal-trigger">
+                                                <td class="id"><a class="text-primary fw-semi-bold" href="">Q-441267</a>
+                                                </td>
+                                                <td class="statut"> Brouillon</td>
+                                                <td class="distributeur">18</td>
+                                                <td class="align-middle text-end fs-0 white-space-nowrap"
+                                                    data-sort="id"> Test</td>
+
+
+                                            </tr>
+
+                                            <tr class="btn-reveal-trigger">
+                                                <td class="id"><a class="text-primary fw-semi-bold" href="">Q-441267</a>
+                                                </td>
+                                                <td class="statut"> Brouillon</td>
+                                                <td class="distributeur">18</td>
+                                                <td class="align-middle text-end fs-0 white-space-nowrap"
+                                                    data-sort="id"> Test</td>
+
+
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="card mb-3">
+                    <div class="card-body bg-light border-top">
+                        <div class="row">
+                            <div class="col-lg col-xxl-5">
+                                <div class="d-flex align-items-center">
+                                    <div
+                                        class="icon-item icon-item-sm bg-soft-primary shadow-none me-2 bg-soft-primary">
+                                        <span class="fs--2 far fa-user text-primary"></span>
+                                    </div>
+                                    <h6 class="fw-semi-bold ls mb-0 text-uppercase">
+                                       {{" Abonnements"|translate}}</h6>
+                                </div>
+                                <br>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+                <div class="card mb-3">
+                    <div class="card-body bg-light border-top">
+                        <div class="row">
+                            <div class="col-lg col-xxl-5">
+                                <div class="d-flex align-items-center">
+                                    <div
+                                        class="icon-item icon-item-sm bg-soft-primary shadow-none me-2 bg-soft-primary">
+                                        <span class="fs--2 far fa-user text-primary"></span>
+                                    </div>
+                                    <h6 class="fw-semi-bold ls mb-0 text-uppercase">
+                                        {{"Products"|translate}}</h6>
+                                </div>
+                                <br>
+                                <div class="table-responsive scrollbar">
+                                    <table class="table table-bordered table-striped fs--1 mb-0">
+                                        <thead class="bg-200 text-900">
+                                            <tr>
+                                                <th class="sort" data-sort="num">{{"KES Select"|translate}}</th>
+                                                <th class="sort" data-sort="statu">{{"KES Advanced"|translate}}</th>
+                                                <th class="sort" data-sort="Distributeur">{{"KEDR Optimum"|translate}}</th>
+                                                <th class="sort " data-sort="id">{{"Optimum Security"|translate}}</th>
+                                                <th class="sort" data-sort="Distributeur">{{"KEDR Optimum Add-on"|translate}}</th>
+                                                <th class="sort " data-sort="id">{{"Managed Detection and Response Optimum Add-on"|translate}}</th>
+                                                <th class="sort" data-sort="num">{{"Managed Detection and Response Expert Add-on"|translate}}</th>
+                                                <th class="sort" data-sort="statu">{{"KES Cloud"|translate}}</th>
+                                                <th class="sort" data-sort="Distributeur">{{"KES Cloud Plus"|translate}}</th>
+                                                <th class="sort " data-sort="id">{{"KES Cloud Pro"|translate}}</th>
+                                                <th class="sort" data-sort="Distributeur">{{"KS for Office 365"|translate}}</th>
+                                                <th class="sort " data-sort="id">{{"ASAP"|translate}}</th>
+                                                <th class="sort " data-sort="id">{{"KHCS, CPU "|translate}}</th>
+                                                <th class="sort" data-sort="num">{{"KHCS Dt"|translate}} </th>
+                                                <th class="sort" data-sort="statu">{{"KHCS SVR"|translate}}</th>
+                                                <th class="sort" data-sort="Distributeur">{{"KHCS Enterprise, SVR"|translate}}</th>
+                                                <th class="sort " data-sort="id">{{"KHCS Enterprise, CPU"|translate}}</th>
+                                                <th class="sort" data-sort="Distributeur">{{"KSE Gateway"|translate}}</th>
+                                                <th class="sort " data-sort="id">{{"KSE Mail"|translate}}</th>
+                                            </tr>
+                                        </thead>
+
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="card mb-3">
+                    <div class="card-body bg-light border-top">
+                        <div class="row">
+                            <div class="col-lg col-xxl-5">
+                                <div class="d-flex align-items-center">
+                                    <div
+                                        class="icon-item icon-item-sm bg-soft-primary shadow-none me-2 bg-soft-primary">
+                                        <span class="fs--2 far fa-user text-primary"></span>
+                                    </div>
+                                    <h6 class="fw-semi-bold ls mb-0 text-uppercase">
+                                        {{"Active subscriptions"|translate}}</h6>
+                                </div>
+                                <br>
+                                <div class="table-responsive scrollbar">
+                                    <table class="table table-bordered table-striped fs--1 mb-0">
+                                        <thead class="bg-200 text-900">
+                                            <tr>
+                                                <th class="sort" data-sort="num">{{"Product name"|translate}}</th>
+                                                <th class="sort" data-sort="statu">{{"Start date"|translate}} </th>
+                                                <th class="sort" data-sort="Distributeur">{{"Expire date"|translate}}</th>
+                                                <th class="sort " data-sort="id">{{"Quantity"|translate}}</th>
+                                                <th class="sort" data-sort="Distributeur">{{"LMP Statut "|translate}}</th>
+                                                <th class="sort " data-sort="id">{{"Subscription name"|translate}}</th>
+                                            </tr>
+                                        </thead>
+
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+    <div class="modal fade " id="error-modal" role="dialog" aria-hidden="true">
+
+        <div style="width: 600px;" class="modal-dialog modal-lg modal-dialog-centered" role="document">
+
+            <div class="modal-content position-relative">
+                <div class="card">
+                    <div class="bg-holder bg-card"
+                        style="background-image:url(../assets/img/icons/spot-illustrations/corner-5.png);"></div>
+                    <!--/.bg-holder-->
+                    <div class="card-body position-relative">
+                        <div class="row g-2 align-items-sm-center">
+                            <div class="col-auto"><img src="../assets/img/icons/connect-circle.png" alt=""
+                                    height="55" /></div>
+                            <div class="col">
+                                <div class="row align-items-center">
+                                    <div class="col col-lg-8">
+                                        <h5 class="fs-0 mb-3 mb-sm-0 text-primary">{{"Add customer"|translate}}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+                    <button class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="col-lg-14 pe-lg-2">
+                        <form [formGroup]="myForm">
+
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <h6 class="mb-0">{{"Customer Settings"|translate}}</h6>
+                                </div>
+                                <div class="card-body bg-light">
+                                    <div class="row g-3">
+                                        <div class="col-lg-6"> <label class="form-label">{{"Custemer name"|translate}}
+                                        </label><input formControlName="companyName" class="form-control" id="first-name" type="text" />
+                                      </div>
+                                      <div class="col-lg-6"> <label class="form-label">{{"E-mail "|translate}}</label><input
+                                          formControlName="companyEmail" class="form-control" id="email1" type="text" />
+                                      </div>
+                                      <div class="col-lg-6"> <label class="form-label">{{"City"|translate}}
+                                        </label><input formControlName="companyPhone" class="form-control" id="first-name" type="text" />
+                                      </div>
+                                      <div class="col-lg-6"> <label class="form-label">{{"Country"|translate}}</label><input
+                                          formControlName="companyPhone" class="form-control" id="email1" type="text" />
+                                      </div>
+                  
+                  
+                                      <div class="col-lg-6"> <label class="form-label">{{"City"|translate}}
+                                        </label>
+                                        <div class="col-auto px-3"> <select formControlName="country"
+                                            class="form-select form-select-sm mb-3" aria-label="Bulk actions"
+                                            data-list-filter="data-list-filter">
+                                            <option selected="" value="">{{"Select City"|translate}}</option>
+                                            <option value="Tunisia">Tunisia</option>
+                                            <option value="Algeria">Algeria</option>
+                                            <option value="France">France</option>
+                                          </select></div>
+                                      </div>
+                                      <div class="col-lg-6"> <label class="form-label">{{"City"|translate}}</label><input formControlName="city"
+                                          class="form-control" id="email1" type="text" />
+                                      </div>
+                                      <div class="col-lg-6"> <label class="form-label">{{"Etat"|translate}}
+                                        </label>
+                                        <div class="col-auto px-3"> <select class="form-select form-select-sm mb-3"
+                                            aria-label="Bulk actions" data-list-filter="data-list-filter">
+                                            <option selected="" value="">{{"Select State"|translate}}</option>
+                  
+                                          </select></div>
+                                      </div>
+                                      <div class="col-lg-6"> <label class="form-label">{{"Code postal"|translate}}</label><input formControlName="zip"
+                                          class="form-control" id="email1" type="text" />
+                                      </div>
+                                      <div class="col-lg-6"> <label class="form-label">{{"street"|translate}}
+                                        </label><input formControlName="addressLine1" class="form-control" id="first-name"
+                                          type="textarea" /></div>
+                                      <div class="col-lg-6"> <label class="form-label">{{"External Customer ID"|translate}}</label><input class="form-control" id="email1" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">{{"Exit"|translate}}</button>
+                    <button class="btn btn-primary" (click)="updateCustomer()" data-bs-dismiss="modal"
+                        type="submit">{{"Submet"|translate}} </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade " id="error-modal2" role="dialog" aria-hidden="true">
+        <div style="width: 600px;" class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content position-relative">
+                <div class="card">
+                    <div class="bg-holder bg-card"
+                        style="background-image:url(../assets/img/icons/spot-illustrations/corner-5.png);"></div>
+                    <!--/.bg-holder-->
+                    <div class="card-body position-relative">
+                        <div class="row g-2 align-items-sm-center">
+                            <div class="col-auto"><img src="../assets/img/icons/connect-circle.png" alt=""
+                                    height="55" /></div>
+                            <div class="col">
+                                <div class="row align-items-center">
+                                    <div class="col col-lg-8">
+                                        <h5 class="fs-0 mb-3 mb-sm-0 text-primary">{{"New Subscription Quote"|translate}}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-100">
+                    <div class="card mb-3">
+
+
+                        <div class="card-body bg-light">
+                            <div class="row g-3">
+                                <form>
+                                    <label class="form-check-label">
+                                        {{"Distributor"|translate}}
+                                    </label>
+                                        <div class="col-sm-10"><input class="form-control-plaintext outline-none"
+                                                id="staticEmail" type="text" readonly="" value="MIPS Micro Informatique, Progiciels et Services" />
+                                            <div class="mb-3 row"></div>
+                                        </div>
+
+
+
+                                        <label class="form-check-label">
+                                           {{" Customer"|translate}}
+                                        </label>
+                                        <ng-select [items]="list"
+                                                   bindLabel="item_text"
+                                                   placeholder="Search for a ..."
+                                                   [(ngModel)]="selectedCity"
+                                                   [ngModelOptions]="{standalone: true}">
+                                        </ng-select>
+                                      
+
+                                        <br>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="flexCheckDefault">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                {{"My company will own the license"|translate}}
+                                            </label>
+                                        </div>
+                                </form>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+                    <button class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" id="clos" type="button" data-bs-dismiss="modal">{{"Exit"|translate}}</button>
+                    <button class="btn btn-primary" type="submit">{{"Add products"|translate}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
