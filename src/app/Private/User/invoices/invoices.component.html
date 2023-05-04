@@ -89,6 +89,26 @@
                       </div>
                     </div>
                   </div>
+                  <div id="contentToConvert" *ngIf="showDatapd" style="margin-top: 30px;">
+
+                    <div class="row" style="padding: 60px; border: 0.2px solid gray; border-radius: 20px;">
+                        <div class="col-6" style="font-weight: bold;">ID : </div>
+                        <div class="col-6">{{invoiceObj?.idInvoice}}</div>
+                        <div class="col-6" style="font-weight: bold;">Date : </div>
+                        <div class="col-6">{{invoiceObj?.dateCreationInvoice | date: 'yyyy/mm/dd'}}</div>
+                        <div class="col-6" style="font-weight: bold;">Total price : </div>
+                        <div class="col-6">{{invoiceObj?.totalPrice}}</div>
+                        <div class="col-6" style="font-weight: bold;">User : </div>
+                        <div class="col-6">{{invoiceObj.user.username}}</div>
+                        <div class="col-6" style="font-weight: bold;">Cin : </div>
+                        <div class="col-6">{{invoiceObj.user.cin}}</div>
+                    </div>
+                  </div>
+                  <div class="row" style="margin-top: 20px;" *ngIf="showDatapd">
+                    <div class="col-4">
+                      <button class="btn btn-success" (click)="generatePdf()">PDF</button>
+                    </div>
+                  </div>
                   <div class="table-responsive scrollbar" style="margin-top: 10px;">
                     <table class="table table-bordered table-striped fs--1 mb-0">
                       <thead class="bg-200 text-900">
@@ -121,7 +141,7 @@
 
 
                               <td>
-                                 <button pButton pRipple icon="pi pi-file" style="width: 10px; height: 30px;"  class="p-button-sm p-button-rounded p-button-danger"
+                                 <button pButton pRipple icon="pi pi-file" (click)="showPagepdf(inv)" style="width: 10px; height: 30px;"  class="p-button-sm p-button-rounded p-button-danger"
                                    ></button>
                                  
                               </td>

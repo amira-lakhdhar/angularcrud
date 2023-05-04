@@ -4,6 +4,8 @@ import {Invoices} from 'src/app/Shared/Models/invoices'
 import { InvoicesService } from 'src/app/Shared/Services/invoices.service';
 import { ArticlesService } from 'src/app/Shared/Services/articles.service';
 import { ToastrService } from 'ngx-toastr';
+import { jsPDF } from "jspdf"
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-invoices',
@@ -18,12 +20,50 @@ export class InvoicesComponent implements OnInit {
   allInvoices : any
   allArticles : any
   listeArticle : any
+  
+  modifi: boolean = false
+  showDatapdf :boolean = false
+  showDatapd : boolean = false
+  invoiceObj : any
 
   ngOnInit(): void { 
     this.lazyLoadService.loadExternalScripts("../assets/js/echarts-example.js").then(() => {}).catch(() => {});        
     this.getAllInvoices()
     this.getAllArticle()
     
+  }
+
+  generatePdf() {
+
+    const op = {
+      background: 'white',
+      scale: 3
+    }
+    var div = document.getElementById("contentToConvert")
+    console.log(div)
+    setTimeout(() => {
+      if (div) {
+        html2canvas(div, op).then(async canvas => {
+          const contentDataURL = await canvas.toDataURL('image/png')
+          let pdf = new jsPDF('p', 'mm', 'a4');
+          var width = await pdf.internal.pageSize.getWidth();
+          var height = await canvas.height * width / canvas.width;
+          pdf.addImage(contentDataURL, 'PNG', 0, 0, width, height)
+          pdf.save('output.pdf'); // Generated PDF
+          localStorage.removeItem('data1')
+          localStorage.removeItem('data2')
+          localStorage.removeItem('lien')
+
+
+        });
+      }
+    }, 0);
+  }
+
+  showPagepdf(data:any){
+    this.showDatapd = true
+    this.invoiceObj = data
+    console.log(this.invoiceObj)
   }
 
   selectArticle(event:any){
